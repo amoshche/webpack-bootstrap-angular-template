@@ -1,0 +1,69 @@
+<div class="navbar navbar-default">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" ng-init="navTopCollapsed = true" ng-click="navTopCollapsed = !navTopCollapsed">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <ul class="nav navbar-brand navbar-nav" style="padding-top: 0px;">
+      <li>
+        <button class="btn btn-link no-outline-on-focus btn-danger"
+                title="There are Critical Errors"
+                ng-show="!!app.hasCriticalErrors"
+                ng-click="app.generateSupportReport()">
+          <i class="fa fa-exclamation-triangle fa-lg"></i>
+        </button>
+      </li>
+    </ul>
+    <a class="navbar-brand">{{$state.current.data.instance}}&nbsp;APP</a>
+  </div>
+
+  <div class="collapse navbar-collapse" ng-class="!navTopCollapsed && 'in'" ng-click="navTopCollapsed=true">
+    <ul class="nav navbar-nav">
+      <li ng-class="{active: $state.includes('app.rapid')}"><a href ng-disabled="$state.includes('app.rapid')" ng-click="app.rapid()">Rapid</a></li>
+      <li ng-class="{active: $state.includes('app.arm')}"><a href ng-disabled="$state.includes('app.arm')" ng-click="app.arm()">Arm</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <button class="btn btn-link no-outline-on-focus"
+                title="Reload application"
+                ng-click="app.reload()">
+          <i class="fa fa-refresh fa-lg"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<ui-view name="rapid" ng-show="$state.includes('app.rapid')"></ui-view>
+<ui-view name="arm" ng-show="$state.includes('app.arm')"></ui-view>
+
+<!--
+<div class="navbar navbar-default navbar-fixed-bottom dropup navbar-collapsed">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" ng-init="navBootomCollapsed = true" ng-click="navBootomCollapsed = !navBootomCollapsed">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+
+  <div class="collapse navbar-collapse" ng-class="!navBootomCollapsed && 'in'" ng-click="navBootomCollapsed=true">
+    <pre>
+ -->
+       <!-- Here's some values to keep an eye on in the sample in order to understand $state and $stateParams -->
+<!--
+      $state = {{$state.current.name}}
+      $stateParams = {{$stateParamsDecoded()}}
+      $state.current.data = {{$state.current.data}}
+      $state full url = {{ $state.$current.url.source }}
+ -->
+      <!-- $state.$current is not a public api, we are using it to
+           display the full url for learning purposes-->
+<!--
+    </pre>
+  </div>
+</div>
+ -->
