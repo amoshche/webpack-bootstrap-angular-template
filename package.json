@@ -1,0 +1,66 @@
+{
+  "name": "webpack-bootstrap-angular-template",
+  "version": "0.0.1",
+  "description": "The starting point for less and angular prototyping",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack --config webpack.config.js --display-modules --display-chuncks --color --progress",
+    "webpack-dev": "webpack --config webpack.dev.config.js --display-modules --display-chuncks --color --progress",
+    "server": "http-server ./dist -p 8080",
+    "server-dev": "http-server ./build -p 9090",
+    "webpack-dev-server": "webpack-dev-server --config webpack.dev.config.js --port 3003 --display-modules --display-chuncks --color --progress",
+    "test": "\"karma start karma.conf.js --single-run\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amoshche/webpack-bootstrap-angular-template.git"
+  },
+  "keywords": [
+    "webpack",
+    "less",
+    "bootstrap",
+    "angular"
+  ],
+  "author": "Alexey Moshchenikov",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/amoshche/webpack-bootstrap-angular-template/issues"
+  },
+  "homepage": "https://github.com/amoshche/webpack-bootstrap-angular-template",
+  "devDependencies": {
+    "angular-mocks": "^1.3.10",
+    "angular-webpack-plugin": "0.0.3",
+    "css-loader": "^0.9.1",
+    "exports-loader": "^0.6.2",
+    "expose-loader": "^0.6.0",
+    "extract-text-webpack-plugin": "^0.3.8",
+    "file-loader": "^0.8.1",
+    "html-loader": "^0.2.3",
+    "html-webpack-plugin": "^1.1.0",
+    "http-server": "^0.7.4",
+    "imports-loader": "^0.6.3",
+    "jshint": "^2.6.0",
+    "jshint-loader": "^0.8.1",
+    "less": "^2.2.0",
+    "less-loader": "git+https://github.com/amoshche/less-loader#master",
+    "ng-annotate": "^0.15.1",
+    "style-loader": "^0.8.3",
+    "url-loader": "^0.5.5",
+    "webpack": "^1.5.3",
+    "webpack-dev-server": "^1.7.0"
+  },
+  "dependencies": {
+    "angular": "^1.3.10",
+    "angular-animate": "^1.3.10",
+    "angular-aria": "^1.3.10",
+    "angular-resource": "^1.3.10",
+    "angular-sanitize": "^1.3.10",
+    "angular-ui-bootstrap": "git+https://github.com/amoshche/angular-ui-bootstrap#0.13.0-SNAPSHOT",
+    "angular-ui-router": "^0.2.13",
+    "bootstrap": "^3.3.2",
+    "font-awesome": "^4.2.0",
+    "jquery": "^2.1.3",
+    "ui-router-extras": "git+https://github.com/amoshche/ui-router-extras#0.0.12-SNAPSHOT",
+    "underscore": "^1.7.0"
+  }
+}

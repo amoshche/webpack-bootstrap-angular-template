@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Application</title>
+    <link rel="stylesheet" type="text/css" href="{%=o.htmlWebpackPlugin.assets['app.css']%}"/>
+    <script type="text/javascript" src="{%=o.htmlWebpackPlugin.assets['bootstrap']%}"></script>
+    <script id="FatalErrorTemplate" type="text/html">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 alert alert-danger">
+            <h3>Fatal Error Happened</h3>
+            <h4>Error Message:</h4>
+            <pre><#=message#></pre>
+            <h4>Error Stack Trace:</h4>
+            <pre><#=stack#></pre>
+          </div>
+        </div>
+      </div>
+    </script>
+    <script type="text/javascript">
+      window.app = {};
+      /**
+       * http://weblog.west-wind.com/posts/2008/Oct/13/Client-Templating-with-jQuery
+       */
+      window.app.parseTemplate = function(str, data) {
+        try {
+          var strFunc =
+          "var p=[],print=function(){p.push.apply(p,arguments);};" +
+            "with(obj){p.push('" +
+            str.replace(/[\r\t\n]/g, " ")
+               .replace(/'(?=[^#]*#>)/g, "\t")
+               .split("'").join("\\'")
+               .split("\t").join("'")
+               .replace(/<#=(.+?)#>/g, "',$1,'")
+               .split("<#").join("');")
+               .split("#>").join("p.push('")
+               + "');}return p.join('');";
+          return new Function("obj", strFunc)(data);
+        } catch (e) {
+          return "< # ERROR: " + e.message + " # >";
+        }
+      };
+      window.app.fatalError = function (error) {
+        document.body.innerHTML = app.parseTemplate(document.getElementById("FatalErrorTemplate").innerHTML, error);
+      };
+    </script>
+  </head>
+  <body>
+    <script type="text/javascript" src="{%=o.htmlWebpackPlugin.assets['app.js']%}"></script>
+    <script type="text/javascript">
+      try {
+        angular.module('app')
+          .config(function($logProvider) {
+            $logProvider.debugEnabled(true);
+        });
+        angular.element(document).ready(function() {
+            if(!window.app.appBoot) {
+                window.app.appBoot = true;
+                try {
+                  angular.bootstrap(document, ['appBoot']);
+                } catch (error) {
+                  window.app.fatalError(error);
+                }
+            }
+        });
+      } catch (error) {
+        window.app.fatalError(error);
+      }
+    </script>
+  </body>
+</html>

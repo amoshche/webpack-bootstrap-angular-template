@@ -1,0 +1,10 @@
+{
+  "browser": true,
+  "node": true,
+  "globals": {
+    "$": false,
+    "jQuery": false,
+    "_": false,
+    "angular": false
+  }
+}
