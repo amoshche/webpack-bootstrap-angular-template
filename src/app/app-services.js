@@ -46,17 +46,15 @@
     })
     .provider('tickSvc', function() {
         var self = this;
-        self.ticks = {
-            cfg: 0
-        };
+        self.tick = 0;
         self.setTick = function(tick) {
-            self.ticks.cfg = tick;
+            self.tick = tick;
         };
         self.tick = function() {
-            self.ticks.cfg++;
+            self.tick++;
         };
         self.currentTick = function() {
-            return self.ticks.cfg;
+            return self.tick;
         };
         return {
             $get: function() {
