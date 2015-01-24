@@ -1,4 +1,4 @@
-(function(window, angular, app, undefined) {
+//(function(window, angular, app, undefined) {
     'use strict';
 
     angular.module('app', [
@@ -8,6 +8,7 @@
         'ngResource',
         'ui.router',
         'ct.ui.router.extras',
+        'ui.bootstrap',
         'app.app-router',
         'error.error-router'
     ])
@@ -15,9 +16,8 @@
       $urlRouterProvider
           // The `when` method says if the url is ever the 1st param, then redirect to the 2nd param
           // Here we are just setting up some convenience urls.
-          .when('/', '/0')
-          .when('/', '/0')
-          .otherwise('/error');
+          .when('/:tick/', '/:tick')
+          .otherwise('/0');
     })
     .run(function ($rootScope,
                    $state,
@@ -69,4 +69,4 @@
         });
     })
   ;
-})(window, window.angular, window.app);
+//})(window, window.angular, window.app);

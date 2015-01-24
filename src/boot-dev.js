@@ -1,4 +1,4 @@
-(function(window, angular, app, undefined) {
+//(function(window, angular, app, undefined) {
     'use strict';
 
     angular.module('appBoot',[
@@ -10,4 +10,4 @@
         $httpBackend.whenGET(/\.(svg\?(v=[0-9]\.[0-9]\.[0-9])?|ttf\?(v=[0-9]\.[0-9]\.[0-9])?|eot\?(v=[0-9]\.[0-9]\.[0-9])?|woff\?(v=[0-9]\.[0-9]\.[0-9])?)$/).passThrough();
     })
   ;
-})(window, window.angular, window.app);
+//})(window, window.angular, window.app);

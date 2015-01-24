@@ -16,7 +16,9 @@ module.exports = {
              'exports?window.angular!imports?$=jquery!angular',
              'ngSanitize',
              'ngAnimate',
-             'ngAria'
+             'ngAria',
+             'ui.router',
+             'ct.ui.router.extras'
         ],
         'app.js': ["webpack-dev-server/client?http://localhost:3000", 'webpack/hot/dev-server', "./src/boot-dev.js"],
         'app.css': ["webpack-dev-server/client?http://localhost:3000", 'webpack/hot/dev-server', "./src/app.less"]
@@ -103,6 +105,9 @@ module.exports = {
             'ngAnimate': 'angular-animate',
             'ngAria': 'angular-aria',
             'ngResource': 'angular-resource',
+            'ui.router': 'angular-ui-router',
+            'ct.ui.router.extras': 'ui-router-extras/build/ct-ui-router-extras',
+            'ui.bootstrap': 'angular-ui-bootstrap/dist/ui-bootstrap-tpls-0.13.0-SNAPSHOT',
             'ngMockE2E': 'angular-mocks'
         }
     },
@@ -130,4 +135,3 @@ module.exports = {
         }
     }
 }
-

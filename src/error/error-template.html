@@ -1,16 +1,16 @@
 <div class="container-fluid" style="padding-left:10px !important">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alert alert-danger">
-        <h3>Critical Error Happened</h3>
-        <h4>Error Name:</h4>
-        <pre ng-bind-html="error.getErrorName()"></pre>
-        <h4>Error Message:</h4>
-        <pre ng-bind-html="error.getErrorMsg()"></pre>
-        <h4>Error Stack Trace:</h4>
-        <pre ng-bind-html="error.getErrorTrace()"></pre>
-        <h4>Attempted URL:</h4>
-        <pre><a href="{{error.getAttemptedUrl()}}">{{error.getAttemptedUrl()}}</a></pre>
-        <a href ng-click="error.retry()"><h4>Retry</h4></a>
+      <h3>Critical Error Happened</h3>
+      <h4>Error Name:</h4>
+      <pre ng-bind-html="error.getErrorName()"></pre>
+      <h4>Error Message:</h4>
+      <pre ng-bind-html="error.getErrorMsg()"></pre>
+      <h4>Error Stack Trace:</h4>
+      <pre ng-bind-html="error.getErrorTrace()"></pre>
+      <h4>Attempted URL:</h4>
+      <pre><a href="{{error.getAttemptedUrl()}}">{{error.getAttemptedUrl()}}</a></pre>
+      <a href ng-click="error.retry()"><h4>Retry</h4></a>
     </div>
   </div>
 </div>

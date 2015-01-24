@@ -21,11 +21,11 @@
       </div>
     </script>
     <script type="text/javascript">
-      window.app = {};
+      var app = {};
       /**
        * http://weblog.west-wind.com/posts/2008/Oct/13/Client-Templating-with-jQuery
        */
-      window.app.parseTemplate = function(str, data) {
+      app.parseTemplate = function(str, data) {
         try {
           var strFunc =
           "var p=[],print=function(){p.push.apply(p,arguments);};" +
@@ -43,7 +43,7 @@
           return "< # ERROR: " + e.message + " # >";
         }
       };
-      window.app.fatalError = function (error) {
+      app.fatalError = function (error) {
         document.body.innerHTML = app.parseTemplate(document.getElementById("FatalErrorTemplate").innerHTML, error);
       };
     </script>
@@ -57,18 +57,19 @@
             $logProvider.debugEnabled(true);
         });
         angular.element(document).ready(function() {
-            if(!window.app.appBoot) {
-                window.app.appBoot = true;
-                try {
-                  angular.bootstrap(document, ['appBoot']);
-                } catch (error) {
-                  window.app.fatalError(error);
-                }
+          if(!app.appBoot) {
+            app.appBoot = true;
+            try {
+              angular.bootstrap(document, ['appBoot']);
+            } catch (error) {
+              app.fatalError(error);
             }
+          }
         });
       } catch (error) {
-        window.app.fatalError(error);
+        app.fatalError(error);
       }
     </script>
+    <ui-view></ui-view>
   </body>
 </html>
