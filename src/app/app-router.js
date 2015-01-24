@@ -19,7 +19,7 @@
             },
             url: '/:tick',
             views: {
-                '': {
+                '@': {
                   template: require('./app-template.html'),
                   controller: 'ApplicationController as app'
                 }
