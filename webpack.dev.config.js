@@ -20,8 +20,8 @@ module.exports = {
              'ui.router',
              'ct.ui.router.extras'
         ],
-        'app.js': ["webpack-dev-server/client?http://localhost:3000", 'webpack/hot/dev-server', "./src/boot-dev.js"],
-        'app.css': ["webpack-dev-server/client?http://localhost:3000", 'webpack/hot/dev-server', "./src/app.less"]
+        'app.js': ["webpack-dev-server/client?http://localhost:3000", 'webpack/hot/dev-server', "./src/app.less", "./src/boot-dev.js"]//,
+        //'app.css': ["webpack-dev-server/client?http://localhost:3000", 'webpack/hot/dev-server']
     },
     output: {
         path: "build",
@@ -66,7 +66,8 @@ module.exports = {
             {   test: require.resolve('jquery'), loader: "expose?jQuery" },
             {
                 test: /\.less$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader?sourceMap&-minimize!less-loader?sourceMap&-minimize")
+                loader: 'style-loader!css-loader?sourceMap&-minimize!less-loader?sourceMap&-minimize'
+//                loader: ExtractTextPlugin.extract("style-loader", "css-loader?sourceMap&-minimize!less-loader?sourceMap&-minimize")
             },
             {
                 test: /\.json$/,

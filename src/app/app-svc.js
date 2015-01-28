@@ -3,19 +3,19 @@
 
     var deparam = require('jquery-deparam');
 
-    angular.module('app.app-services',[
+    angular.module('app.app-svc',[
     ])
-    .factory('criticalErrorSvc', function() {
-        function CriticalErrorSvc() {
+    .factory('appErrSvc', function() {
+        function AppErrSvc() {
             var self = this;
             self.errors = {};
             self.hasErrors = false;
-            self.pushError = function(place, error) {
-                self.errors[place] = error;
+            self.set = function(place, error) {
+                self.errors[_.isArray(place) ? place.join('~') : place] = error;
                 self.hasErrors = _(self.errors).keys().length>0;
             };
-            self.clearError = function(place) {
-                delete self.errors[place];
+            self.clear = function(place) {
+                delete self.errors[_.isArray(place) ? place.join('~') : place];
                 self.hasErrors = _(self.errors).keys().length>0;
             };
             self.reset = function() {
@@ -23,7 +23,7 @@
                 self.errors = {};
             };
         }
-        return new CriticalErrorSvc();
+        return new AppErrSvc();
     })
     .factory('transitionMemoSvc', function() {
         function TransitionMemoSvc() {

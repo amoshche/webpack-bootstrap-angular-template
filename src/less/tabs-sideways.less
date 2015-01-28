@@ -1,0 +1,75 @@
+.sideways-text-direction() {
+  -ms-writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+  -moz-writing-mode: vertical-rl;
+  -ms-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+
+  -webkit-text-orientation: sideways;
+  -moz-text-orientation: sideways;
+  -ms-text-orientation: sideways;
+  text-orientation: sideways;
+}
+
+.sideways-text-rotation() {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.sideways-right.tabs-left > .nav-tabs > li > a,
+.sideways-right.tabs-right > .nav-tabs > li > a,
+.sideways-left.tabs-left > .nav-tabs > li > a,
+.sideways-left.tabs-right > .nav-tabs > li > a {
+  min-width: 52px;
+  .sideways-text-direction;
+}
+
+.sideways-left.tabs-left > .nav-tabs > li > a,
+.sideways-left.tabs-right > .nav-tabs > li > a {
+  .sideways-text-rotation;
+}
+
+.sideways-left.tabs-left > .nav-tabs > li > a,
+.sideways-left.tabs-right > .nav-tabs > li > a {
+  margin-top: 3px;
+  margin-left: -1px;
+}
+
+.sideways-left.tabs-left > .nav-tabs > li > a {
+  -webkit-border-radius: 0 4px 4px 0;
+  -moz-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.sideways-left.tabs-left > .nav-tabs > li > a:hover,
+.sideways-left.tabs-left > .nav-tabs > li > a:focus {
+  border-color: #eeeeee #eeeeee #eeeeee #dddddd;
+}
+
+.sideways-left.tabs-left > .nav-tabs .active > a,
+.sideways-left.tabs-left > .nav-tabs .active > a:hover,
+.sideways-left.tabs-left > .nav-tabs .active > a:focus {
+  border-color: #ddd #ddd #ddd transparent;
+  *border-left-color: #ffffff;
+}
+
+.sideways-left.tabs-right > .nav-tabs > li > a {
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+.sideways-left.tabs-right > .nav-tabs > li > a:hover,
+.sideways-left.tabs-right > .nav-tabs > li > a:focus {
+  border-color: #eeeeee #dddddd #eeeeee #eeeeee;
+}
+
+.sideways-left.tabs-right > .nav-tabs .active > a,
+.sideways-left.tabs-right > .nav-tabs .active > a:hover,
+.sideways-left.tabs-right > .nav-tabs .active > a:focus {
+  border-color: #ddd transparent #ddd #ddd;
+  *border-right-color: #ffffff;
+}

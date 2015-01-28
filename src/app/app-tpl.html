@@ -1,0 +1,79 @@
+<div class="app-view" style="height: 100%;">
+  <div class="navbar navbar-inverse">
+    <div class="navbar-header navbar-right">
+      <button type="button" class="navbar-toggle" ng-init="navTopCollapsed = true" ng-click="navTopCollapsed = !navTopCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">APP</a>
+      <button class="navbar-brand btn btn-link btn-danger pull-right no-outline-on-focus"
+        title="There are Application Errors"
+        ng-show="!!app.hasErrors"
+        ng-click="app.generateSupportReport()">
+        <i class="fa fa-exclamation-triangle fa-lg"></i>
+      </button>
+      <button class="navbar-brand btn btn-link pull-right no-outline-on-focus"
+        title="Reload application"
+        ng-click="app.reload()">
+        <i class="fa fa-refresh fa-lg"></i>
+      </button>
+    </div>
+
+    <div class="navbar-header navbar-left">
+      <button type="button" class="navbar-leftsidemenu-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <ul class="nav nav-tabs">
+        <li class="active"><a>One</a>
+        </li>
+        <li><a href>Two</a>
+        </li>
+        <li><a href>Twee</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-inverse-collapse" ng-class="!navTopCollapsed && 'in'" ng-click="navTopCollapsed=true">
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-class="{active: $state.includes('app.sysA')}"><a href ng-disabled="$state.includes('app.sysA')" ng-click="app.goSys('sysA')">SysA</a></li>
+        <li ng-class="{active: $state.includes('app.sysB')}"><a href ng-disabled="$state.includes('app.sysB')" ng-click="app.goSys('sysB')">SysB</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <ui-view name="sysA" ng-show="$state.includes('app.sysA')"></ui-view>
+  <ui-view name="sysB" ng-show="$state.includes('app.sysB')"></ui-view>
+</div>
+<!--
+<div class="navbar navbar-default navbar-fixed-bottom dropup navbar-collapsed">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" ng-init="navBootomCollapsed = true" ng-click="navBootomCollapsed = !navBootomCollapsed">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+
+  <div class="collapse navbar-collapse" ng-class="!navBootomCollapsed && 'in'" ng-click="navBootomCollapsed=true">
+    <pre>
+ -->
+       <!-- Here's some values to keep an eye on in the sample in order to understand $state and $stateParams -->
+<!--
+      $state = {{$state.current.name}}
+      $stateParams = {{$stateParamsDecoded()}}
+      $state.current.data = {{$state.current.data}}
+      $state full url = {{ $state.$current.url.source }}
+ -->
+      <!-- $state.$current is not a public api, we are using it to
+           display the full url for learning purposes-->
+<!--
+    </pre>
+  </div>
+</div>
+ -->

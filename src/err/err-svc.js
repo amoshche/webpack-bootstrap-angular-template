@@ -1,10 +1,10 @@
 //(function(window, angular, app, undefined) {
     'use strict';
 
-    angular.module('error.error-services',[
+    angular.module('err.err-svc',[
     ])
-    .factory('fatalErrorSvc', function($location, $state, $timeout) {
-        function FatalErrorSvc() {
+    .factory('fatalErrSvc', function($location, $state, $timeout) {
+        function FatalErrSvc() {
             var self = this;
             self.error = undefined;
             self.errorState = undefined;
@@ -27,7 +27,7 @@
                                     $location.host() + ':' +
                                     $location.port() +'/' +
                                     $state.href(toState, toParams);
-                $timeout(function() { $state.go(self.errorState || 'app.error',
+                $timeout(function() { $state.go(self.errorState || 'app.err',
                                                 self.errorParams || undefined); });
               };
             self.reset = function() {
@@ -39,7 +39,7 @@
                 self.attemptedUrl = undefined;
             };
         }
-        return new FatalErrorSvc();
+        return new FatalErrSvc();
     })
   ;
 //})(window, window.angular, window.app);

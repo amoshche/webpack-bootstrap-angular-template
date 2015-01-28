@@ -9,8 +9,8 @@
         'ui.router',
         'ct.ui.router.extras',
         'ui.bootstrap',
-        'app.app-router',
-        'error.error-router'
+        'app.app-rt',
+        'err.err-rt'
     ])
     .config(function ($urlRouterProvider) {
       $urlRouterProvider
@@ -24,7 +24,7 @@
                    $timeout,
                    $location,
                    urlParamEncodingSvc,
-                   fatalErrorSvc,
+                   fatalErrSvc,
                    transitionMemoSvc) {
 
         //shim for expressions in templates
@@ -45,7 +45,7 @@
 
         $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
             event.preventDefault();
-            fatalErrorSvc.setError(error,
+            fatalErrSvc.setError(error,
                 transitionMemoSvc.tData.to.state,
                 transitionMemoSvc.tData.to.params);
         });

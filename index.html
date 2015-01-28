@@ -53,8 +53,9 @@
     <script type="text/javascript">
       try {
         angular.module('app')
-          .config(function($logProvider) {
+          .config(function($logProvider, $stickyStateProvider) {
             $logProvider.debugEnabled(true);
+            $stickyStateProvider.enableDebug(true);
         });
         angular.element(document).ready(function() {
           if(!app.appBoot) {
