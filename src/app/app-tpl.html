@@ -1,5 +1,5 @@
-<div class="app-view" style="height: 100%;">
-  <div class="navbar navbar-inverse">
+<div class="app-view">
+  <div class="navbar navbar-inverse app-navbar">
     <div class="navbar-header navbar-right">
       <button type="button" class="navbar-toggle" ng-init="navTopCollapsed = true" ng-click="navTopCollapsed = !navTopCollapsed">
         <span class="sr-only">Toggle navigation</span>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="navbar-header navbar-left">
-      <button type="button" class="navbar-leftsidemenu-toggle">
+      <button type="button" class="navbar-leftsidemenu-toggle" ng-init="navSideCollapsed = true" ng-click="navSideCollapsed = !navSideCollapsed">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -38,7 +38,7 @@
       </ul>
     </div>
 
-    <div class="collapse navbar-collapse navbar-inverse-collapse" ng-class="!navTopCollapsed && 'in'" ng-click="navTopCollapsed=true">
+    <div class="collapse navbar-collapse" ng-class="!navTopCollapsed && 'in'">
       <ul class="nav navbar-nav navbar-right">
         <li ng-class="{active: $state.includes('app.sysA')}"><a href ng-disabled="$state.includes('app.sysA')" ng-click="app.goSys('sysA')">SysA</a></li>
         <li ng-class="{active: $state.includes('app.sysB')}"><a href ng-disabled="$state.includes('app.sysB')" ng-click="app.goSys('sysB')">SysB</a></li>
@@ -46,8 +46,14 @@
     </div>
   </div>
 
-  <ui-view name="sysA" ng-show="$state.includes('app.sysA')"></ui-view>
-  <ui-view name="sysB" ng-show="$state.includes('app.sysB')"></ui-view>
+  <div class="app-content-wrapper">
+    <div class="app-content">
+      <ui-view class="app-menu" name="sysA-menu"  ng-class="!navSideCollapsed && 'in'" ng-show="$state.includes('app.sysA')"></ui-view>
+      <ui-view class="app-menu" name="sysB-menu" ng-class="!navSideCollapsed && 'in'" ng-show="$state.includes('app.sysB')"></ui-view>
+      <ui-view class="app-viewport" name="sysA" ng-show="$state.includes('app.sysA')"></ui-view>
+      <ui-view class="app-viewport"name="sysB" ng-show="$state.includes('app.sysB')"></ui-view>
+    </div>
+  </div>
 </div>
 <!--
 <div class="navbar navbar-default navbar-fixed-bottom dropup navbar-collapsed">

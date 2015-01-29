@@ -29,6 +29,10 @@
                 sys:'sysA',
                 url: '/sysA',
                 views: {
+                    'sysA-menu': {
+                      template: '<div class="sys-menu">menuA</div>',
+                      controller: 'SysMainCtrl as sys'
+                    },
                     'sysA': {
                       template: require('./sys-main-tpl.html'),
                       controller: 'SysMainCtrl as sys'
@@ -39,6 +43,10 @@
                 sys:'sysB',
                 url: '/sysB',
                 views: {
+                    'sysB-menu': {
+                      template: '<div class="sys-menu">menuB</div>',
+                      controller: 'SysMainCtrl as sys'
+                    },
                     'sysB': {
                         template: require('./sys-main-tpl.html'),
                         controller: 'SysMainCtrl as sys'
