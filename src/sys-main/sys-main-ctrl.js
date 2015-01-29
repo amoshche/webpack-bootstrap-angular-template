@@ -4,6 +4,14 @@
     angular.module('sys-main.sys-main-ctrl',[
         'sys-main.sys-main-svc'
     ])
+    .controller('SysNavTabsCtrl', function($scope, sys) {
+        var self = this;
+        self.sys = sys;
+    })
+    .controller('SysNavCtrl', function($scope, sys) {
+        var self = this;
+        self.sys = sys;
+    })
     .controller('SysMainCtrl', function($scope, sys, sysDecorator, sysDecorated) {
         var self = this;
         self.sys = sys;

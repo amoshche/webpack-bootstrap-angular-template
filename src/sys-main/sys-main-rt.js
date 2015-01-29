@@ -29,9 +29,13 @@
                 sys:'sysA',
                 url: '/sysA',
                 views: {
+                    'sysA-nav-tabs': {
+                      template:  require('./sys-main-nav-tabs-tpl.html'),
+                      controller: 'SysNavTabsCtrl as sys'
+                    },
                     'sysA-menu': {
-                      template: '<div class="sys-menu">menuA</div>',
-                      controller: 'SysMainCtrl as sys'
+                      template:  require('./sys-main-nav-tpl.html'),
+                      controller: 'SysNavCtrl as sys'
                     },
                     'sysA': {
                       template: require('./sys-main-tpl.html'),
@@ -43,9 +47,13 @@
                 sys:'sysB',
                 url: '/sysB',
                 views: {
+                    'sysB-nav-tabs': {
+                      template:  require('./sys-main-nav-tabs-tpl.html'),
+                      controller: 'SysNavTabsCtrl as sys'
+                    },
                     'sysB-menu': {
-                      template: '<div class="sys-menu">menuB</div>',
-                      controller: 'SysMainCtrl as sys'
+                      template:  require('./sys-main-nav-tpl.html'),
+                      controller: 'SysNavCtrl as sys'
                     },
                     'sysB': {
                         template: require('./sys-main-tpl.html'),
