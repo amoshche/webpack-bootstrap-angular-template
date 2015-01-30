@@ -36,8 +36,8 @@
 
     <div class="collapse navbar-collapse" ng-class="!navTopCollapsed && 'in'">
       <ul class="nav navbar-nav navbar-right">
-        <li ng-class="{active: $state.includes('app.sysA')}"><a href ng-disabled="$state.includes('app.sysA')" ng-click="app.goSys('sysA')">SysA</a></li>
-        <li ng-class="{active: $state.includes('app.sysB')}"><a href ng-disabled="$state.includes('app.sysB')" ng-click="app.goSys('sysB')">SysB</a></li>
+        <li ng-class="{active: $state.includes('app.sysA')}"><a href ng-click="navTopCollapsed = true; app.goSys('sysA')">SysA</a></li>
+        <li ng-class="{active: $state.includes('app.sysB')}"><a href ng-click="navTopCollapsed = true; app.goSys('sysB')">SysB</a></li>
       </ul>
     </div>
   </div>
@@ -59,6 +59,7 @@
     </div>
   </div>
 </div>
+<div style="display: hidden;" ui-view="sys.params"></div>
 <!--
 <div class="navbar navbar-default navbar-fixed-bottom dropup navbar-collapsed">
   <div class="navbar-header">

@@ -1,4 +1,16 @@
 <div class="sys-main-view">
+  <div class="tabcontent">
+    <div class="tab-pane"
+         ng-repeat="tab in sys.mgr.tabs"
+         ng-class="{active:sys.mgr.activeTab == tab.id}"
+         ng-include="tab.url"
+         ng-controller="tab.controller">
+    </div>
+  </div>
+<!-- 
+  <tab ng-repeat="tab in sys.tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+      {{tab.content}}
+  </tab>
   <div class="reports-tab-pane-horizontal-bound">
     <div class="tab-content reports-tab-pane-vertical-bound">
       <div class="subreports-nav tab-pane active" id="one">
@@ -27,6 +39,7 @@
       <div class="tab-pane" id="twee">Thirdamuno, ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae.</div>
     </div>
   </div>
+-->
   <!--div class="subreports-tabs tabs-right sideways-right">
     <ul class="nav nav-tabs">
       <li class="active"><a href>One</a></li>

@@ -9,7 +9,7 @@ AngularWebpackPlugin.prototype.addAngularVariable = function(parser) {
 module.exports = {
     entry: {
         'bootstrap': [
-             'webpack-dev-server/client?http://localhost:3000',
+             'webpack-dev-server/client?http://localhost:3003',
              'webpack/hot/dev-server',
              'underscore',
              'jquery',
@@ -20,7 +20,7 @@ module.exports = {
              'ui.router',
              'ct.ui.router.extras'
         ],
-        'app.js': ["webpack-dev-server/client?http://localhost:3000", 'webpack/hot/dev-server', "./src/app.less", "./src/boot-dev.js"]//,
+        'app.js': ["webpack-dev-server/client?http://localhost:3003", 'webpack/hot/dev-server', "./src/app.less", "./src/boot-dev.js"]//,
         //'app.css': ["webpack-dev-server/client?http://localhost:3000", 'webpack/hot/dev-server']
     },
     output: {

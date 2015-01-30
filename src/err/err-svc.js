@@ -23,9 +23,7 @@
                 self.error =  error;
                 self.toState = toState;
                 self.toParams = toParams;
-                self.attemptedUrl = $location.protocol() + '://' +
-                                    $location.host() + ':' +
-                                    $location.port() +'/' +
+                self.attemptedUrl = $location.absUrl().split('#')[0] +
                                     $state.href(toState, toParams);
                 $timeout(function() { $state.go(self.errorState || 'app.err',
                                                 self.errorParams || undefined); });

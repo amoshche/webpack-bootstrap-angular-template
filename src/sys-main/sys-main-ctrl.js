@@ -4,9 +4,17 @@
     angular.module('sys-main.sys-main-ctrl',[
         'sys-main.sys-main-svc'
     ])
-    .controller('SysNavTabsCtrl', function($scope, sys) {
+    .controller('SysNavTabsCtrl', function($scope, sysManager) {
         var self = this;
-        self.sys = sys;
+        self.mgr = sysManager;
+        self.setActiveTab = function(id) {
+            self.mgr.updateParams('active', id);
+        };
+        $scope.$on('app::sys.params', function(event, sysParams) {
+            if(self.mgr.sys == sysParams.sys) {
+                self.mgr.setParams(sysParams.params);
+            }
+        });
     })
     .controller('SysNavCtrl', function($scope, sys) {
         var self = this;
@@ -17,13 +25,6 @@
         self.sys = sys;
         self.sysDecorator = sysDecorator;
         self.sysDecorated = sysDecorated;
-        $scope.$on('sys-main::rpt.typ.a.data', function(event, data) {
-            $scope.$broadcast('rpt.typ.a::rpt.typ.a.data', data);
-        });
-        
-        $scope.$on('sys-main::rpt.typ.b.data', function(event, data) {
-            $scope.$broadcast('rpt.typ.b::rpt.typ.b.data', data);
-        });
     })
   ;
 //})(window, window.angular, window.app);

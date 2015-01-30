@@ -31,6 +31,11 @@
             self.goSys = function(sys) {
                 $state.go(['app',sys].join('.'));
             };
+
+            $scope.$on('app.sys.params::params', function(event, sysParams) {
+                $scope.$broadcast('app::sys.params', sysParams);
+            });
+
         }
     )
   ;
