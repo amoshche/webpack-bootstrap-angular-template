@@ -1,7 +1,7 @@
 //(function(window, angular, app, undefined) {
     'use strict';
 
-    angular.module('app', [
+    angular.module('boot', [
         'ngSanitize',
         'ngAnimate',
         'ngAria',

@@ -1,0 +1,4 @@
+<li ng-repeat="t in stickyB.mgr.tabs"
+  ng-class="{active: stickyB.mgr.actives[t.id]}">
+  <a ng-click="stickyB.setActiveTab(t.id)">{{t.name}}</a>
+</li>

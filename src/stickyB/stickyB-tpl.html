@@ -1,14 +1,14 @@
-<div class="sys-main-view">
-  <div class="tabcontent">
-    <div class="tab-pane"
-         ng-repeat="tab in sys.mgr.tabs"
-         ng-class="{active:sys.mgr.activeTab == tab.id}"
-         ng-include="tab.url"
-         ng-controller="tab.controller">
+<div class="stickyB-view">
+  <div class="tab-content stickyB-viewport-wrapper">
+    <div class="tab-pane stickyB-viewport"
+         ng-repeat="t in stickyB.mgr.tabs"
+         ng-class="{active:stickyB.mgr.actives[t.id]}">
+         <ng-include src="t.url" ng-controller="t.controller">
+         </ng-include>
     </div>
   </div>
-<!-- 
-  <tab ng-repeat="tab in sys.tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+<!--
+  <tab ng-repeat="tab in stickyB.tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
       {{tab.content}}
   </tab>
   <div class="reports-tab-pane-horizontal-bound">

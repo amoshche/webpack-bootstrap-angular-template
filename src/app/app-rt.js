@@ -5,7 +5,7 @@
         'app.app-svc',
         'app.app-dir',
         'app.app-ctrl',
-        'sys-main.sys-main-rt'
+        'stickyB.stickyB-rt'
     ])
     .config(function ($stateProvider) {
         $stateProvider

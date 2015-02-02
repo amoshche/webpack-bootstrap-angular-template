@@ -28,16 +28,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <ul class="nav nav-tabs" ui-view="sysA-nav-tabs" ng-show="$state.includes('app.sysA')">
+      <ul class="nav nav-tabs" ui-view="stickyB_A-nav-tabs" ng-show="$state.includes('app.stickyB_A')">
       </ul>
-      <ul class="nav nav-tabs" ui-view="sysB-nav-tabs" ng-show="$state.includes('app.sysB')">
+      <ul class="nav nav-tabs" ui-view="stickyB_B-nav-tabs" ng-show="$state.includes('app.stickyB_B')">
       </ul>
     </div>
 
     <div class="collapse navbar-collapse" ng-class="!navTopCollapsed && 'in'">
       <ul class="nav navbar-nav navbar-right">
-        <li ng-class="{active: $state.includes('app.sysA')}"><a href ng-click="navTopCollapsed = true; app.goSys('sysA')">SysA</a></li>
-        <li ng-class="{active: $state.includes('app.sysB')}"><a href ng-click="navTopCollapsed = true; app.goSys('sysB')">SysB</a></li>
+        <li ng-class="{active: $state.includes('app.stickyB_A')}"><a href ng-click="navTopCollapsed = true; app.gostickyB('stickyB_A')">stickyB_A</a></li>
+        <li ng-class="{active: $state.includes('app.stickyB_B')}"><a href ng-click="navTopCollapsed = true; app.gostickyB('stickyB_B')">stickyB_B</a></li>
       </ul>
     </div>
   </div>
@@ -46,20 +46,20 @@
     <div class="app-content">
       <div class="app-menu col-xs-10 col-sm-5 col-md-4 col-lg-3" ng-class="navSideCollapsed && 'out'">
         <div class="app-menu-viewport-wrapper">
-          <ui-view class="app-menu-viewport" name="sysA-menu" ng-show="$state.includes('app.sysA')"></ui-view>
-          <ui-view class="app-menu-viewport" name="sysB-menu" ng-show="$state.includes('app.sysB')"></ui-view>
+          <ui-view class="app-menu-viewport" name="stickyB_A-menu" ng-show="$state.includes('app.stickyB_A')"></ui-view>
+          <ui-view class="app-menu-viewport" name="stickyB_B-menu" ng-show="$state.includes('app.stickyB_B')"></ui-view>
         </div>
       </div>
       <div class="app-child-view" >
         <div class="app-child-viewport-wrapper">
-          <ui-view class="app-child-viewport" name="sysA" ng-show="$state.includes('app.sysA')"></ui-view>
-          <ui-view class="app-child-viewport"name="sysB" ng-show="$state.includes('app.sysB')"></ui-view>
+          <ui-view class="app-child-viewport" name="stickyB_A" ng-show="$state.includes('app.stickyB_A')"></ui-view>
+          <ui-view class="app-child-viewport"name="stickyB_B" ng-show="$state.includes('app.stickyB_B')"></ui-view>
         </div>
       </div>
     </div>
   </div>
 </div>
-<div style="display: hidden;" ui-view="sys.params"></div>
+<div style="display: hidden;" ui-view="stickyB.params"></div>
 <!--
 <div class="navbar navbar-default navbar-fixed-bottom dropup navbar-collapsed">
   <div class="navbar-header">

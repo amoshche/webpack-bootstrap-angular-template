@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('appBoot',[
-        'app',
+        'boot',
         'ngMockE2E'
     ])
     .run(function($httpBackend) {

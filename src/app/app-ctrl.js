@@ -28,12 +28,12 @@
                 $state.go($state.current, { tick: tickSvc.currentTick() });
             };
 
-            self.goSys = function(sys) {
-                $state.go(['app',sys].join('.'));
+            self.gostickyB = function(stickyB) {
+                $state.go(['app',stickyB].join('.'));
             };
 
-            $scope.$on('app.sys.params::params', function(event, sysParams) {
-                $scope.$broadcast('app::sys.params', sysParams);
+            $scope.$on('app.stickyB.params::params', function(event, stickyBParams) {
+                $scope.$broadcast('app::stickyB.params', stickyBParams);
             });
 
         }

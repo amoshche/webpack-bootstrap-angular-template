@@ -1,7 +1,7 @@
 //(function(window, angular, app, undefined) {
     'use strict';
 
-    angular.module('sys-main.sys-main-dir',[
+    angular.module('stickyB.stickyB-dir',[
     ])
     // .directive('rptTypADir', function() {
     // })

@@ -1,13 +1,13 @@
 //(function(window, angular, app, undefined) {
     'use strict';
 
-    angular.module('sys-main.sys-main-svc',[
+    angular.module('stickyB.stickyB-svc',[
     ])
-    .factory('sysManagerFactory', /*@ngInject*/function($templateCache) {
-        function SysManagerFactory() {
-            function SysManager(sys, tabs, updateReportParamsF) {
+    .factory('stateManagerFactory', /*@ngInject*/function($templateCache) {
+        function StateManagerFactory() {
+            function StateManager(stickyB, tabs, updateParamsF) {
                 var mgr = this;
-                mgr.sys = sys;
+                mgr.stickyB = stickyB;
                 mgr.tabs=[];
                 mgr.actives={};
                 mgr.params={};
@@ -15,6 +15,10 @@
                 _.each(tabs,
                     function(t) {
                         $templateCache.put(t.url, t.tmpl);
+                        if(!mgr.actives[t.id])
+                            mgr.actives[t.id] = false;
+                        if(!mgr.params[t.id])
+                            mgr.params[t.id] = {};
                         mgr.tabs.push({
                             id: t.id,
                             name: t.name,
@@ -29,10 +33,6 @@
                                     }
                                     mgr.subTabControllers[t.id][subTab] = subTabCtrl;
                                 };
-                                if(!mgr.actives[t.id])
-                                    mgr.actives[t.id] = false;
-                                if(!mgr.params[t.id])
-                                    mgr.params[t.id] = {};
                                 tab.active = function() { return mgr.active; };
                                 tab.params = function() { return mgr.params[t.id]; };
 //                                 mgr.tabParamsToApply[t]={};
@@ -64,17 +64,17 @@
                     } else {
                         mgr.params[key] = params;
                     }
-                    updateReportParamsF(mgr.params);
+                    updateParamsF(mgr.params);
                 };
 
             }
 
             var self = this;
-            self.manager = function(sys, tabs, updateReportParamsF) {
-                return new SysManager(sys, tabs, updateReportParamsF);
+            self.manager = function(stickyB, tabs, updateReportParamsF) {
+                return new StateManager(stickyB, tabs, updateReportParamsF);
             };
         }
-        return new SysManagerFactory();
+        return new StateManagerFactory();
     })
   ;
 //})(window, window.angular, window.app);
