@@ -1,32 +1,32 @@
 <div class="app-view">
   <div class="navbar navbar-inverse app-navbar">
     <div class="navbar-header navbar-right">
-      <button type="button" class="navbar-toggle" ng-init="navTopCollapsed = true" ng-click="navTopCollapsed = !navTopCollapsed">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+      <button type="button" class="navbar-brand btn btn-link no-outline-on-focus navbar-toggle"
+        title="Toggle navigation"
+        ng-init="navTopCollapsed = true"
+        ng-click="navTopCollapsed = !navTopCollapsed">
+        <i class="fa fa-bars"></i>
       </button>
       <a class="navbar-brand">APP</a>
       <button class="navbar-brand btn btn-link btn-danger pull-right no-outline-on-focus"
         title="There are Application Errors"
         ng-show="!!app.hasErrors"
         ng-click="app.generateSupportReport()">
-        <i class="fa fa-exclamation-triangle fa-lg"></i>
+        <i class="fa fa-exclamation-triangle"></i>
       </button>
       <button class="navbar-brand btn btn-link pull-right no-outline-on-focus"
         title="Reload application"
         ng-click="app.reload()">
-        <i class="fa fa-refresh fa-lg"></i>
+        <i class="fa fa-repeat"></i>
       </button>
     </div>
 
     <div class="navbar-header navbar-left" ng-show="!($state.is('app') || $state.is('app.err'))">
-      <button type="button" class="navbar-leftsidemenu-toggle" ng-init="navSideCollapsed = true" ng-click="navSideCollapsed = !navSideCollapsed">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+      <button type="button" class="navbar-brand btn btn-link no-outline-on-focus navbar-leftsidemenu-toggle"
+        title="Toggle menu"
+        ng-init="navSideCollapsed = true"
+        ng-click="navSideCollapsed = !navSideCollapsed">
+        <i class="fa fa-sliders"></i>
       </button>
       <ul class="nav nav-tabs" ui-view="stickyB_A-nav-tabs" ng-show="$state.includes('app.stickyB_A')">
       </ul>
