@@ -28,9 +28,20 @@
   }
 
   .nav-tabs {
-    display: table-cell;
+
+    display: flex;
+
+    @media (min-width: @grid-float-breakpoint) {
+      > li > .tooltip {
+        display: none !important;
+      }
+    }
 
     > li > a {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow-x: hidden;
+
       color: @navbar-inverse-link-color;
 
       &:hover,
